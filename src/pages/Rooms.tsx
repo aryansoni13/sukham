@@ -1,58 +1,73 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter,ArrowLeft } from 'lucide-react';
 
 const rooms = [
   {
     id: 1,
-    name: "Room 1 - Dormitory Room",
+    name: "Dormitory Room",
     image:
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80",
     description:
-      "Dormitory where 10 people can stay comfortably with separate attached bathroom.",
-    price: "₹",
+      "Dormitory where 10 people can stay comfortably with attached bathroom.",
+    price: "₹750",
+    capacity: "Maximum 10 people",
+    additionalInfo: "per head + tax",
   },
   {
     id: 2,
-    name: "Junior room 2",
+    name: "Junior Room 2",
     image:
       "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1000&q=80",
     description:
       "Only two adults can stay in junior room with attached bathroom.",
-    price: "₹",
+    price: "₹1,800",
+    capacity: "2 Adults",
+    additionalInfo: "+ tax",
   },
   {
     id: 3,
-    name: "Family room no 3",
+    name: "Family Room 3",
     image:
       "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80",
     description:
-      "Family room where 4 people can stay one queen double bedded with extra bed will be given",
-    price: "₹",
+      "Family room where 2 adults and 2 children can stay comfortably",
+    price: "₹3,000",
+    capacity: "2 Adults + 2 Children",
+    additionalInfo: "+ tax",
   },
   {
     id: 4,
-    name: "Family room no 4",
+    name: "Family Room 4",
     image:
       "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80",
-    description: "Family room where 4 people can stay one queen double bedded with extra bed will be given",
-    price: "₹",
+    description: 
+      "Family room where 2 adults and 2 children can stay comfortably",
+    price: "₹3,000",
+    capacity: "2 Adults + 2 Children",
+    additionalInfo: "+ tax",
   },
   {
     id: 5,
-    name: "Family room no 5",
+    name: "Family Room 5",
     image:
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80",
-    description: "Family room where 4 people can stay one queen double bedded with extra bed will be given",
-    price: "₹",
+    description: 
+      "Family room where 2 adults and 2 children can stay comfortably",
+    price: "₹3,000",
+    capacity: "2 Adults + 2 Children",
+    additionalInfo: "+ tax",
   },
   {
     id: 6,
-    name: "Junior room 6",
+    name: "Junior Room 6",
     image:
       "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1000&q=80",
-    description: "Only two adults can stay in junior room with attached bathroom.",
-    price: "₹",
+    description: 
+      "Only two adults can stay in junior room with attached bathroom.",
+    price: "₹1,800",
+    capacity: "2 Adults",
+    additionalInfo: "+ tax",
   },
 ];
 
@@ -86,19 +101,90 @@ const RoomsPage = () => {
             </a>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {rooms.map((room) => (
               <div key={room.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <img src={room.image} alt={room.name} className="w-full h-48 object-cover" />
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <h2 className="text-xl font-serif">{room.name}</h2>
-                    <span className="text-primary font-semibold">{room.price}/night</span>
+                    <div className="text-right">
+                      <span className="text-primary font-semibold">{room.price}</span>
+                      <span className="text-sm text-gray-500 block">{room.additionalInfo}</span>
+                      <span className="text-xs text-gray-400 block italic mt-1">
+                        *Price may vary from time to time
+                      </span>
+                    </div>
                   </div>
-                  <p className="text-gray-600">{room.description}</p>
+                  <p className="text-gray-600 mb-2">{room.description}</p>
+                  <p className="text-sm text-gray-500">{room.capacity}</p>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="max-w-2xl mx-auto mt-16">
+            <div className="bg-white rounded-xl shadow-xl p-8 md:p-12 border border-gray-100 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60"></div>
+              
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif text-center text-gray-800 mb-10">
+                For fair price contact:
+              </h3>
+              
+              <div className="space-y-8">
+                <div className="flex flex-col items-center gap-6">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10">
+                    <a 
+                      href="tel:9445842201" 
+                      className="flex items-center gap-3 text-xl md:text-2xl font-medium text-gray-700 hover:text-primary transition-all duration-300 group"
+                    >
+                      <span className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 rounded-full group-hover:scale-110 transition-transform duration-300">
+                        📞
+                      </span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        9445842201
+                      </span>
+                    </a>
+                    <a 
+                      href="tel:9047475131" 
+                      className="flex items-center gap-3 text-xl md:text-2xl font-medium text-gray-700 hover:text-primary transition-all duration-300 group"
+                    >
+                      <span className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 rounded-full group-hover:scale-110 transition-transform duration-300">
+                        📞
+                      </span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        9047475131
+                      </span>
+                    </a>
+                  </div>
+                  
+                  <a 
+                    href="mailto:sukhamresort@gmail.com" 
+                    className="flex items-center gap-3 text-xl md:text-2xl font-medium text-gray-700 hover:text-primary transition-all duration-300 group"
+                  >
+                    <span className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 rounded-full group-hover:scale-110 transition-transform duration-300">
+                      ✉️
+                    </span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      sukhamresort@gmail.com
+                    </span>
+                  </a>
+                </div>
+
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-200"></div>
+                  </div>
+                  <div className="relative flex justify-center">
+                    <span className="bg-white px-4 text-sm text-gray-500">Contact Us</span>
+                  </div>
+                </div>
+
+                <p className="text-center text-gray-600 max-w-md mx-auto">
+                  Contact us directly for the best available rates and exclusive special offers for your stay
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -106,6 +192,17 @@ const RoomsPage = () => {
       <footer className="bg-gray-900 text-white py-8 mt-20">
         <div className="text-center">
           <p>© {new Date().getFullYear()} Sukham Resort. All rights reserved.</p>
+          <p className="text-sm text-gray-400">
+            Created and Maintained by{' '}
+            <a 
+              href="https://www.linkedin.com/in/aryan-soni-26794924a/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors font-medium"
+            >
+              Aryan Soni
+            </a>
+          </p>
         </div>
       </footer>
     </div>
