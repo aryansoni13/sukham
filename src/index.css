@@ -44,3 +44,40 @@ html {
     transform: translateY(0);
   }
 }
+
+/* Reset CSS */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+
+/* Fix image rendering */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve mobile viewport height handling */
+@supports (-webkit-touch-callout: none) {
+  .h-[100dvh] {
+    height: -webkit-fill-available;
+  }
+}

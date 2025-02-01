@@ -18,6 +18,8 @@ import {
   Waves,
   Twitter,
   ArrowRight,
+  Menu,
+  X,
 } from "lucide-react";
 import { useForm, ValidationError } from "@formspree/react";
 import Navbar from "./components/Navbar";
@@ -27,6 +29,7 @@ import Footer from "./components/Footer";
 import NearbyPlaces from "./components/NearbyPlaces";
 import Testimonials from "./components/Testimonials";
 import Rooms from "./pages/Rooms";
+
 function ContactForm() {
   const [state, handleSubmit] = useForm("xjkggwyp");
 
@@ -138,23 +141,69 @@ function HomePage() {
         {/* Hero Section */}
         <section
           id="home"
-          className="h-screen relative flex items-center justify-center"
+          className="relative w-full h-[100dvh] flex items-center justify-center"
         >
+          {/* Background Image Container */}
           <div className="absolute inset-0">
-            <img
-              src="https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=2000&q=80"
-              alt="Luxury resort view"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="relative w-full h-full">
+              <img
+                src="https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=2000&q=80"
+                alt="Luxury resort view"
+                className="absolute w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-black/50"></div>
+            </div>
           </div>
-          <div className="relative text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-serif mb-4">
-              Sukham Resort
-            </h1>
-            <p className="text-xl md:text-2xl">
-              Experience Luxury & Tranquility
-            </p>
+
+          {/* Content Container */}
+          <div className="relative z-10 w-full px-4">
+            <div className="max-w-[90%] w-full mx-auto text-center">
+              {/* Main Heading */}
+              <h1 className="text-white font-serif 
+                             text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
+                             leading-[1.2] mb-4 sm:mb-6"
+              >
+                Sukham Resort
+              </h1>
+
+              {/* Subheading */}
+              <p className="text-white/90 
+                            text-lg sm:text-xl md:text-2xl lg:text-3xl 
+                            mb-8 sm:mb-10"
+              >
+                Experience Luxury & Tranquility
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  to="/rooms"
+                  className="w-full sm:w-auto whitespace-nowrap
+                             px-8 py-3 sm:py-4
+                             bg-primary text-white rounded-lg
+                             text-base sm:text-lg font-medium
+                             hover:bg-primary/90 transition-all"
+                >
+                  View Our Rooms
+                  <ArrowRight className="ml-2 w-5 h-5 inline-block" />
+                </Link>
+                
+                <a
+                  href="#contact"
+                  className="w-full sm:w-auto whitespace-nowrap
+                             px-8 py-3 sm:py-4
+                             bg-white/10 backdrop-blur-sm text-white rounded-lg
+                             text-base sm:text-lg font-medium
+                             border border-white/30
+                             hover:bg-white/20 transition-all"
+                >
+                  Contact Us
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -190,24 +239,13 @@ function HomePage() {
         <section id="rooms" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-serif text-center mb-8">Our Rooms</h2>
-
+            
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-gray-600 leading-relaxed mb-8">
-                Welcome to our luxurious resort, a tranquil haven nestled amidst
-                breathtaking natural landscapes. Step into our elegantly
-                designed rooms that effortlessly blend modern comfort with
-                rustic charm. Each room boasts spacious interiors, adorned with
-                tasteful furnishings and enchanting views of the surrounding
-                lush greenery. Immerse yourself in a world of serenity as you
-                unwind on a plush king-sized bed, enveloped in crisp,
-                high-thread-count linens. Indulge in the opulent marble
-                bathroom, featuring a rejuvenating rain shower and deluxe
-                amenities. With seamless technology and thoughtful touches, our
-                rooms provide the perfect sanctuary for relaxation, ensuring an
-                unforgettable stay for every discerning guest.
+                Welcome to our luxurious resort, a tranquil haven nestled amidst breathtaking natural landscapes. Step into our elegantly designed rooms that effortlessly blend modern comfort with rustic charm. Each room boasts spacious interiors, adorned with tasteful furnishings and enchanting views of the surrounding lush greenery. Immerse yourself in a world of serenity as you unwind on a plush king-sized bed, enveloped in crisp, high-thread-count linens. Indulge in the opulent marble bathroom, featuring a rejuvenating rain shower and deluxe amenities. With seamless technology and thoughtful touches, our rooms provide the perfect sanctuary for relaxation, ensuring an unforgettable stay for every discerning guest.
               </p>
               <div className="flex justify-center gap-4">
-                <Link
+                <Link 
                   to="/rooms"
                   className="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
                 >

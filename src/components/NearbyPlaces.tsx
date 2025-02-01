@@ -76,7 +76,7 @@ const places: Place[] = [
     name: "Rangaswamy Park",
     image: rangaswamypark,
     description:
-      "Rangasamy Peak is of great importance to the local Irula people their sacred Rangasamy Temple is right up there on the summit. You can pay a visit to the shrine and also look around at some spectacular views from a height of 6,000 m if youre up for a steep trek. Take the steps up at your own pace to reach the top. The 360-degree panoramic view from the summit is stunning. You can see the Bhavani river flowing into the Bhavani Sagar dam. There are no tourist facilities there except for a shelter if it rains. Take plenty of water and snacks if venturing up. The Rangasamy Tablet is a distinctive feature that is northwest of the Peak and often hides from view in the ever-present mist. To the less adventurous, both the Peak and Pillar are readily visible from the Kodanad View Point itself at a distance. Certainly a more comfortable option for older people.",
+      "Rangaswamy Peak is of great importance to the local Irula people their sacred Rangasamy Temple is right up there on the summit. You can pay a visit to the shrine and also look around at some spectacular views from a height of 6,000 m if youre up for a steep trek. Take the steps up at your own pace to reach the top. The 360-degree panoramic view from the summit is stunning. You can see the Bhavani river flowing into the Bhavani Sagar dam. There are no tourist facilities there except for a shelter if it rains. Take plenty of water and snacks if venturing up. The Rangasamy Tablet is a distinctive feature that is northwest of the Peak and often hides from view in the ever-present mist. To the less adventurous, both the Peak and Pillar are readily visible from the Kodanad View Point itself at a distance. Certainly a more comfortable option for older people.",
   },
   {
     id: 9,
@@ -101,7 +101,7 @@ const places: Place[] = [
   },
   {
     id: 12,
-    name: "Thunderworld",
+    name: "Thunder World",
     image: thunderworld,
     description:
       "Among the many amusement and theme parks in Ooty, Thunder World is undoubtedly one of the best entertainment parks that invite people to spend a great time with their loved ones. Also referred to as the Dinosaur Park, this unspoiled site introduces you to the next level of leisure and recreational activities that leave you happy and excited at the same time. It is a perfect destination for all those who wish to add some fun element to their life and has also become a go-to place for a half or full-day excursion. The prime highlight of the Thunder World is Jurassic Park. You can also visit the World of Spirits with the Vortex section that showcases 3D paintings with some illusions to completely blow off your mind. Other points of interest are a camera museum and a 5D theatre that deliver an altogether different experience. Make sure to bring a camera with you to capture some memories you’ll create here.",

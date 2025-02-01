@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const rooms = [
   {
@@ -11,7 +9,7 @@ const rooms = [
     image:
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80",
     description:
-      "Dormitory where 10 people can stay comfortably. Same like room queen double bedded with blankets will be provided. Dormitory with separate attached bathroom.",
+      "Dormitory where 10 people can stay comfortably with separate attached bathroom.",
     price: "₹",
   },
   {
@@ -61,67 +59,41 @@ const rooms = [
 const RoomsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
-
+      <nav className="bg-white shadow-sm p-4">
+        <Link to="/" className="text-xl font-bold text-primary">Sukham Resort</Link>
+      </nav>
+      
       <main className="pt-20">
-        {/* Header */}
         <div className="bg-primary text-white py-16">
-          <div className="container mx-auto px-4">
-            <Link
-              to="/"
-              className="inline-flex items-center text-white/80 hover:text-white mb-4"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
+          <div className="max-w-6xl mx-auto px-4">
+            <Link to="/" className="text-white/80 hover:text-white flex items-center">
+              <ArrowLeft className="mr-2" />
               Back to Home
             </Link>
-            <h1 className="text-4xl md:text-5xl font-serif mb-4">Our Rooms</h1>
-            <p className="text-xl text-white/80">
-              Discover comfort and luxury in every detail
-            </p>
+            <h1 className="text-4xl md:text-5xl font-serif mt-4">Our Rooms</h1>
           </div>
         </div>
 
-        {/* Booking Buttons */}
-        <div className="container mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="flex justify-center gap-4 mb-12">
-            <a
-              href="https://www.airbnb.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#FF5A5F] text-white rounded-lg hover:bg-[#FF5A5F]/90 transition-colors font-medium"
-            >
+            <a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer"
+               className="px-8 py-3 bg-[#FF5A5F] text-white rounded-lg">
               Book on Airbnb
             </a>
-            <a
-              href="https://www.booking.com/hotel/in/sukham-resort-kotagiri.html?label=gen173rf-1FCAsobEINc3VraGFtLXJlc29ydEgzWANobIgBAZgBMbgBF8gBFdgBAegBAfgBAogCAaICD3N1a2hhbXJlc29ydC5pbqgCA7gCiqrsvAbAAgHSAiRhZmIzMTcwOC05YmY0LTRiOGQtYWFhYS1hZTQzZTM5OGVhMDbYAgXgAgE&sid=a720316c672d2a695f84c78ee25d11b4"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#003580] text-white rounded-lg hover:bg-[#003580]/90 transition-colors font-medium"
-            >
+            <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer"
+               className="px-8 py-3 bg-[#003580] text-white rounded-lg">
               Book on Booking.com
             </a>
           </div>
 
-          {/* Rooms Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {rooms.map((room) => (
-              <div
-                key={room.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
-              >
-                <div className="h-64">
-                  <img
-                    src={room.image}
-                    alt={room.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div key={room.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src={room.image} alt={room.name} className="w-full h-48 object-cover" />
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <h2 className="text-xl font-serif">{room.name}</h2>
-                    <span className="text-primary font-semibold">
-                      {room.price}/night
-                    </span>
+                    <span className="text-primary font-semibold">{room.price}/night</span>
                   </div>
                   <p className="text-gray-600">{room.description}</p>
                 </div>
@@ -131,7 +103,11 @@ const RoomsPage = () => {
         </div>
       </main>
 
-      <Footer />
+      <footer className="bg-gray-900 text-white py-8 mt-20">
+        <div className="text-center">
+          <p>© {new Date().getFullYear()} Sukham Resort. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
