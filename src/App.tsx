@@ -305,6 +305,13 @@ function HomePage() {
                   >
                     9445842201
                   </a>
+                  <span className="text-gray-400">|</span>
+                  <a
+                    href="tel:9445842201"
+                    className="text-lg hover:text-primary transition-colors"
+                  >
+                    9047475131
+                  </a>
                 </div>
                 <div className="flex items-center gap-4 justify-center">
                   <Mail className="w-6 h-6 text-primary" />

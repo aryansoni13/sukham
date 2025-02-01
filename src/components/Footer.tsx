@@ -45,6 +45,8 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary" />
                 <a href="tel:9445842201" className="hover:text-primary transition-colors">94458 42201</a>
+                <span className="text-gray-400">|</span>
+                <a href="tel:9047475131" className="hover:text-primary transition-colors">90474 75131</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary" />
@@ -101,9 +103,20 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-800 pt-8 text-center text-sm">
+        {/* Copyright and Credits */}
+        <div className="border-t border-gray-800 pt-8 text-center space-y-2">
           <p>&copy; {new Date().getFullYear()} SUKHAM RESORT. All rights reserved.</p>
+          <p className="text-sm text-gray-400">
+            Created and Maintained by{' '}
+            <a 
+              href="https://www.linkedin.com/in/aryan-soni-26794924a/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors font-medium"
+            >
+              Aryan Soni
+            </a>
+          </p>
         </div>
       </div>
     </footer>
