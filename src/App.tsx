@@ -100,6 +100,14 @@ function ContactForm() {
 function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [showPromo, setShowPromo] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const heroImages = [
+    "https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80",
+    ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -108,6 +116,36 @@ function HomePage() {
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Auto carousel effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Manual navigation function
+  const goToSlide = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+
+  // Previous slide function
+  const prevSlide = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Next slide function
+  const nextSlide = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   const facilities = [
     {
@@ -138,41 +176,61 @@ function HomePage() {
         {/* Hero Section */}
         <section
           id="home"
-          className="relative w-full h-[100dvh] flex items-center justify-center"
+          className="relative w-full h-[100dvh] flex items-center justify-center overflow-hidden"
         >
           {/* Background Image Container */}
           <div className="absolute inset-0">
-            <div className="relative w-full h-full">
-              <img
-                src="https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=2000&q=80"
-                alt="Luxury resort view"
-                className="absolute w-full h-full object-cover"
-                loading="eager"
-                fetchPriority="high"
+            {heroImages.map((img, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 w-full h-full transition-opacity duration-1000
+                  ${currentImageIndex === index ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <div className="relative w-full h-full">
+                  <img
+                    src={img}
+                    alt={`Resort view ${index + 1}`}
+                    className="w-full h-full object-cover"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "low"}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300
+                  ${currentImageIndex === index 
+                    ? 'bg-white w-4' 
+                    : 'bg-white/50 hover:bg-white/75'}`}
+                aria-label={`Go to slide ${index + 1}`}
               />
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-black/50"></div>
-            </div>
+            ))}
           </div>
 
           {/* Content Container */}
           <div className="relative z-10 w-full px-4">
             <div className="max-w-[90%] w-full mx-auto text-center">
               {/* Main Heading */}
-              <h1
-                className="text-white font-serif 
+              <h1 className="text-white font-serif 
                              text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
-                             leading-[1.2] mb-4 sm:mb-6"
-              >
+                             leading-[1.2] mb-4 sm:mb-6
+                             drop-shadow-lg">
                 Sukham Resort
               </h1>
 
               {/* Subheading */}
-              <p
-                className="text-white/90 
+              <p className="text-white/90 
                             text-lg sm:text-xl md:text-2xl lg:text-3xl 
-                            mb-8 sm:mb-10"
-              >
+                            mb-8 sm:mb-10
+                            drop-shadow-lg">
                 Experience Luxury & Tranquility
               </p>
 
@@ -184,7 +242,8 @@ function HomePage() {
                              px-8 py-3 sm:py-4
                              bg-primary text-white rounded-lg
                              text-base sm:text-lg font-medium
-                             hover:bg-primary/90 transition-all"
+                             hover:bg-primary/90 transition-all
+                             shadow-lg"
                 >
                   View Our Rooms
                   <ArrowRight className="ml-2 w-5 h-5 inline-block" />
@@ -197,7 +256,8 @@ function HomePage() {
                              bg-white/10 backdrop-blur-sm text-white rounded-lg
                              text-base sm:text-lg font-medium
                              border border-white/30
-                             hover:bg-white/20 transition-all"
+                             hover:bg-white/20 transition-all
+                             shadow-lg"
                 >
                   Contact Us
                 </a>

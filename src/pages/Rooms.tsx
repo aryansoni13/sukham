@@ -109,25 +109,6 @@ const RoomsPage = () => {
         </div>
 
         <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="flex justify-center gap-4 mb-12">
-            <a
-              href="https://www.airbnb.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#FF5A5F] text-white rounded-lg"
-            >
-              Book on Airbnb
-            </a>
-            <a
-              href="https://www.booking.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#003580] text-white rounded-lg"
-            >
-              Book on Booking.com
-            </a>
-          </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {rooms.map((room) => (
               <div
