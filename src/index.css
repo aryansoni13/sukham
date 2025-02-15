@@ -4,6 +4,7 @@
 
 :root {
   --color-primary: #9c6f44;
+  --primary-color: #your-primary-color;
 }
 
 html {
@@ -80,4 +81,15 @@ img {
   .h-[100dvh] {
     height: -webkit-fill-available;
   }
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
